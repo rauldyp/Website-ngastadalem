@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tera Architecture Studio — Designed to Belong</title>
+<!-- Tailwind CSS CDN with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Plus Jakarta Sans & Space Grotesk for architectural editorial feel -->
+<link href="https://fonts.preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"Space Grotesk"', 'monospace']
+          },
+          colors: {
+            brand: {
+              black: '#080808',
+              cardDark: '#121316',
+              surface: '#FBFBFB',
+              muted: '#7A7A7A',
+              lightGray: '#A0A0A0',
+              accent: '#262626'
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles for Typography, Fine Lines & Editorial Scroll Reveal -->
+<style data-purpose="custom-typography">
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #ffffff;
+      color: #111111;
+      -webkit-font-smoothing: antialiased;
+    }
+    .tracking-architectural {
+      letter-spacing: -0.035em;
+    }
+    .eyebrow-text {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* Architectural Scroll Reveal Animations */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(28px);
+      transition-property: opacity, transform;
+      transition-duration: 950ms;
+      transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal-on-scroll.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered Delay Helpers */
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
+    .delay-400 { transition-delay: 400ms; }
+
+    /* Carousel Progress Bar Animation */
+    @keyframes progressFill {
+      0% {
+        width: 0%;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+
+    .project-indicator .indicator-fill {
+      width: 0%;
+      height: 100%;
+      background-color: #ffffff;
+      border-radius: 9999px;
+    }
+
+    .project-indicator.is-active .indicator-fill {
+      animation: progressFill 5000ms linear forwards;
+    }
+
+    /* Pause filling when carousel is hovered */
+    .carousel-is-paused .project-indicator.is-active .indicator-fill {
+      animation-play-state: paused;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      .project-indicator.is-active .indicator-fill {
+        animation: none !important;
+        width: 100% !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-[#FAFAFA] text-[#141414] antialiased selection:bg-black selection:text-white">
+<!-- BEGIN: Navigation -->
+<header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 px-6 sm:px-12 md:px-16 py-6 flex items-center justify-between pointer-events-none" data-purpose="site-header">
+<div class="pointer-events-auto">
+<a class="text-white text-xl sm:text-2xl font-semibold tracking-tight uppercase hover:opacity-80 transition-opacity" href="#">NGASTADALAM</a>
+</div>
+<!-- Burger Menu Button -->
+<div class="pointer-events-auto">
+<button aria-label="Open Navigation Menu" class="text-white p-2 hover:opacity-75 transition-opacity flex flex-col items-end gap-1.5 focus:outline-none" type="button">
+<span class="w-6 h-[2px] bg-white block"></span>
+<span class="w-4 h-[2px] bg-white block"></span>
+</button>
+</div>
+</header>
+<!-- END: Navigation -->
+<!-- BEGIN: Hero Section -->
+<section class="relative min-h-[100vh] w-full flex flex-col justify-between p-6 sm:p-12 md:px-16 py-6 text-white overflow-hidden" data-purpose="hero-section">
+<!-- Hero Background Image with Subtle Film Tint -->
+<div class="absolute inset-0 z-0">
+<img alt="Contemporary Architecture Villa with Warm Timber and Raw Concrete" class="w-full h-full object-cover object-center filter brightness-[0.88]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqiuqqMK3zpQooGJwra8IU7IGiIsHtlzhFSZBvz-xy_0a_Qi-tI1V8VrV6I66_aPa9Jo1B8vcwIJTBtIxHuC0H-De4pzQbzD84KAz0E31-rwsiSztkarjnOFWGxXCxO1LpMvK2J8NgwWsGwbAxDYAdk05fV5YbFpxYn-d_we76zD3rKHGa8mnVGerC7O9KcFss2o31wkdl4onmWdSZd9t6O0HdBvrPSxp6P5h66GvPOvJr85ZuBCqmdw"/>
+<div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60"></div>
+</div>
+<!-- Hero Content -->
+<div class="relative z-10 pt-28 sm:pt-36 max-w-7xl mx-auto w-full">
+<h1 class="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-architectural leading-[0.95] max-w-4xl text-white">
+        Designed <br class="hidden sm:inline"/>to Belong.
+      </h1>
+</div>
+<!-- Hero Bottom Bar: Description & Scroll Indicator -->
+<div class="relative z-10 w-full max-w-7xl mx-auto pt-16 pb-4 flex flex-col md:flex-row justify-between items-end gap-8">
+<!-- Centered Scroll Pill -->
+<div class="w-full md:w-auto flex justify-center order-2 md:order-1">
+<a class="flex flex-col items-center gap-2 text-white/80 hover:text-white transition-colors group" href="#about">
+<div class="w-5 h-9 rounded-full border border-white/60 flex items-start justify-center p-1">
+<span class="w-1 h-2 bg-white rounded-full animate-bounce"></span>
+</div>
+<span class="text-[10px] tracking-widest uppercase font-mono font-medium text-white/70 group-hover:text-white">Scroll Down</span>
+</a>
+</div>
+<!-- Hero Subtitle Text Block (Right aligned as in design) -->
+<div class="max-w-md text-left md:text-left order-1 md:order-2">
+<p class="text-sm sm:text-base leading-relaxed text-white/90 font-normal backdrop-blur-[2px]">
+          Architecture shaped by its surroundings, its people, and the way life unfolds within it. We create spaces that feel considered, natural, and quietly timeless.
+        </p>
+</div>
+</div>
+</section>
+<!-- END: Hero Section -->
+<!-- BEGIN: About Us Section -->
+<section class="py-24 sm:py-32 px-6 sm:px-12 md:px-16 bg-[#FAFAFA]" data-purpose="about-section" id="about">
+<div class="max-w-7xl mx-auto">
+<!-- Eyebrow Tag -->
+<div class="flex items-center gap-4 mb-14">
+<span class="eyebrow-text text-black font-mono">01  ABOUT US</span>
+<span class="h-[1px] w-28 bg-neutral-300"></span>
+</div>
+<!-- Main Philosophy Statement (Scroll Animated) -->
+<div class="mb-20">
+<h2 class="text-3xl sm:text-5xl md:text-6xl font-bold tracking-architectural leading-[1.12] text-[#111111] max-w-5xl reveal-on-scroll">
+          We design architecture shaped by landscape, material, and light as spaces that belong to it.
+        </h2>
+</div>
+<!-- Founder Credit (Scroll Animated with delay) -->
+<div class="flex justify-end items-center mb-16 sm:mb-20">
+<div class="flex items-center gap-6 reveal-on-scroll delay-100">
+<span class="h-[1px] w-20 sm:w-32 bg-neutral-300"></span>
+<div class="text-[11px] uppercase tracking-wider font-mono">
+<span class="font-bold text-black">FOUNDER</span>
+<span class="text-neutral-500 ml-2">TEJA SALANDIKA</span>
+</div>
+</div>
+</div>
+<!-- Key Metrics Counter -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-12 sm:gap-8 pb-20 border-b border-neutral-200" id="metrics-container">
+<!-- Metric 1 -->
+<div class="space-y-2">
+<p class="text-6xl sm:text-7xl lg:text-8xl font-bold tracking-tight text-[#141414] metric-counter" data-suffix="+" data-target="10">10+</p>
+<p class="text-[11px] font-mono tracking-widest uppercase text-neutral-500 font-semibold">Years of Experience</p>
+</div>
+<!-- Metric 2 -->
+<div class="space-y-2">
+<p class="text-6xl sm:text-7xl lg:text-8xl font-bold tracking-tight text-[#141414] metric-counter" data-suffix="+" data-target="120">120+</p>
+<p class="text-[11px] font-mono tracking-widest uppercase text-neutral-500 font-semibold">Project Completed</p>
+</div>
+<!-- Metric 3 -->
+<div class="space-y-2">
+<p class="text-6xl sm:text-7xl lg:text-8xl font-bold tracking-tight text-[#141414] metric-counter" data-suffix="" data-target="12">12</p>
+<p class="text-[11px] font-mono tracking-widest uppercase text-neutral-500 font-semibold">Industry Awards</p>
+</div>
+</div>
+<!-- Architectural Split Showcase Banner (Scroll Animated) -->
+<div class="mt-20 overflow-hidden shadow-sm reveal-on-scroll">
+<div class="grid grid-cols-1 md:grid-cols-12 min-h-[460px]">
+<!-- Left Facade Section -->
+<div class="md:col-span-4 h-80 md:h-auto overflow-hidden">
+<img alt="Vertical fluted stone facade detailing" class="w-full h-full object-cover object-center transform hover:scale-105 transition duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfFv5iYug8Mm33y9oVTT8WFEtgdwr_WM_cswW7NN_-3TdFR7cdkVwTm4yGHToQsa-9GqvBSUzo21lvTQ4UPLIZi_aGluMiopMLI3zQ4y-Agga-3pmdixYFmJVFOHTjO66vaDTg9M0M3W6QlKhMPGTI-g_RzRsTc8jGigRaifsSYWv29MlG_QFc8vzFqD0weAJkQyd_efcdfM4l4-xfCQ7AmhMEebjYjaamJfymlqcRWTJwDI-xKI-QTQ"/>
+</div>
+<!-- Right Facade Section with Clear Blue Sky -->
+<div class="md:col-span-8 h-96 md:h-auto overflow-hidden">
+<img alt="Sculptural minimalist pavilion stone architecture against cyan sky" class="w-full h-full object-cover object-center transform hover:scale-105 transition duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfLFTJqQtxBPMIfnfTJeLdfLbMARh9gcXjrV6TZQq8DjkfwclAwy9AQOJ0RRkYDEoJqTmRGrfub_XYmzuRFMSA7IgXRTq9jKbQLuOrb9vpcWGQ2XtY1ROLHroWWfxC8IZwyUWLnWLADcbnqZC18dyn6RIUa7AuNR_fXnB1gdqub4BHpEaMap-GwIopq2txTnTPHyTsVhGjHZAh4y8lM7591TsKim-AhBDOp-hpcDE0MuRgIgtNVfC1dw"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: About Us Section -->
+<!-- BEGIN: Our Services Section -->
+<section class="py-24 sm:py-32 px-6 sm:px-12 md:px-16 bg-white" data-purpose="services-section">
+<div class="max-w-7xl mx-auto">
+<!-- Right-aligned Eyebrow Tag -->
+<div class="flex justify-end items-center gap-4 mb-20">
+<span class="eyebrow-text text-black font-mono">02  OUR SERVICES</span>
+<span class="h-[1px] w-24 bg-neutral-300"></span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+<!-- Services Navigation / Disciplines List -->
+<div class="lg:col-span-7 flex flex-col space-y-4 sm:space-y-6" id="services-list">
+<!-- Residential (default active) -->
+<div class="group cursor-pointer service-item" data-service="residential">
+<span class="service-label text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#111111] inline-block border-b-2 border-black pb-1 transition-all duration-200">
+              Residential
+            </span>
+</div>
+<!-- Commercial -->
+<div class="group cursor-pointer service-item" data-service="commercial">
+<span class="service-label text-3xl sm:text-5xl md:text-6xl font-normal tracking-tight text-neutral-400 group-hover:text-black border-b-2 border-transparent pb-1 transition-all duration-200">
+              Commercial
+            </span>
+</div>
+<!-- Planning Applications -->
+<div class="group cursor-pointer service-item" data-service="planning">
+<span class="service-label text-3xl sm:text-5xl md:text-6xl font-normal tracking-tight text-neutral-400 group-hover:text-black border-b-2 border-transparent pb-1 transition-all duration-200">
+              Planning Applications
+            </span>
+</div>
+<!-- Design Development -->
+<div class="group cursor-pointer service-item" data-service="design">
+<span class="service-label text-3xl sm:text-5xl md:text-6xl font-normal tracking-tight text-neutral-400 group-hover:text-black border-b-2 border-transparent pb-1 transition-all duration-200">
+              Design Development
+            </span>
+</div>
+<!-- Construction Documentation -->
+<div class="group cursor-pointer service-item" data-service="construction">
+<span class="service-label text-3xl sm:text-5xl md:text-6xl font-normal tracking-tight text-neutral-400 group-hover:text-black border-b-2 border-transparent pb-1 transition-all duration-200">
+              Construction Documentation
+            </span>
+</div>
+<!-- Contract Admin -->
+<div class="group cursor-pointer service-item" data-service="admin">
+<span class="service-label text-3xl sm:text-5xl md:text-6xl font-normal tracking-tight text-neutral-400 group-hover:text-black border-b-2 border-transparent pb-1 transition-all duration-200">
+              Contract Admin
+            </span>
+</div>
+</div>
+<!-- Service Preview Card & Description (Scroll Animated) -->
+<div class="lg:col-span-5 flex flex-col justify-start space-y-6 pt-4 lg:pt-0 reveal-on-scroll delay-200" id="service-preview-card">
+<div class="w-full aspect-[4/3] bg-neutral-100 overflow-hidden rounded-sm relative shadow-sm">
+<img alt="Residential architecture preview" class="w-full h-full object-cover object-center transition-all duration-500 ease-out transform" id="service-preview-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9Bcx84KWr3lXKgkdh6AzcUOPPMv-czJUTKsSHDpGkoFwDamsZKJMJsUMb83ZZMqShcQYxRX0ztvZAuz2cKRga7ioKkEZTu1WiqR0ENrT-hKp1AO8QRdf2iuAxy5X-yK0LkCR_uDXEOFecfWJ58-rvieLJOy1j5Si3uByhTqMYof6jWuxkUayrltHrRw4LP_nGIyXKFN_IhjO41Gs0f_uk3hf2iAuS6x57ig132vwxq7ZzyN858aWgmA"/>
+</div>
+<p class="text-sm sm:text-base leading-relaxed text-neutral-700 max-w-md transition-all duration-500 ease-out" id="service-preview-desc">
+            We create residential spaces that balance character, comfort, and context — from intimate retreats to considered family homes.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Our Services Section -->
+<!-- BEGIN: Selected Projects Section (Dark Canvas Stage) -->
+<section class="py-24 sm:py-36 px-6 sm:px-12 md:px-16 bg-[#080808] text-white select-none" data-purpose="featured-projects-section" id="selected-projects" tabindex="0">
+<div class="max-w-7xl mx-auto">
+<!-- Eyebrow Tag -->
+<div class="flex items-center gap-4 mb-10">
+<span class="eyebrow-text text-neutral-400 font-mono">03  SELECTED PROJECT</span>
+<span class="h-[1px] w-24 bg-neutral-800"></span>
+</div>
+<!-- Section Title (Scroll Animated) -->
+<div class="text-center mb-16 sm:mb-20">
+<h2 class="text-4xl sm:text-6xl md:text-7xl font-bold tracking-architectural reveal-on-scroll">
+          Projects We're<br/>Proud Of
+        </h2>
+</div>
+<!-- Featured Project Card Container (Scroll Animated) -->
+<div class="max-w-5xl mx-auto reveal-on-scroll delay-100" id="projects-carousel">
+<!-- Image Container with Micro-interaction & Slide Overlay -->
+<div class="relative w-full aspect-[16/10] sm:aspect-[16/9] overflow-hidden bg-neutral-900 group cursor-pointer rounded-sm" id="project-slide-view">
+<img alt="Larkspur Private House - Warm timber slatted screens and clean concrete facade" class="w-full h-full object-cover object-center transition-all duration-700 ease-out group-hover:scale-[1.02]" id="project-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtpa7cnLZd3Dphtsg6ExVgX8ZcVj7SSRi8mllHJZEAdwIl1EeTWGI13VG4MWIKkPoBGd5ymGhbbkAKrmy8KLIFSo3qkSJHI_eR6Dw1zsyl2UKf8YvJEei40AtRhYYyOB4Xkotq8rBzBdCKHlY3-nla4DqabIBcwxXMXJ2c02u7kSdc2wW7fUWfo2cLPe0_5ogrC8ffpC-96apj7dl2xdTkvYY-cjYiLLDKx6OSp5GCblToagJ9ldAUfA"/>
+<!-- Subtle overlay vignette -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 pointer-events-none"></div>
+<!-- Number watermark badge -->
+<div class="absolute top-5 right-6 z-10 font-mono text-xs uppercase tracking-widest text-white/70 bg-black/40 backdrop-blur-md px-3 py-1 rounded-sm border border-white/10">
+<span id="slide-current-idx">01</span> / <span id="slide-total-count">04</span>
+</div>
+</div>
+<!-- Project Meta Details (Animated smoothly on slide change) -->
+<div class="mt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 transition-all duration-500 ease-out" id="project-meta-container">
+<div>
+<h3 class="text-base sm:text-xl font-medium text-white mb-2 tracking-tight transition-opacity duration-300" id="project-title">
+              Larkspur Private House <span class="text-neutral-500 font-light mx-2">•</span> 4223 m²
+            </h3>
+<span class="inline-block px-3 py-1 text-[10px] font-mono tracking-widest uppercase border border-neutral-700 text-neutral-300 rounded-sm transition-all duration-300" id="project-category">
+              RESIDENTIAL
+            </span>
+</div>
+<div class="text-sm font-mono text-neutral-400 font-medium tracking-wider" id="project-year">
+            2026
+          </div>
+</div>
+<!-- Slider Progress Track & Action Link -->
+<div class="mt-12 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-t border-neutral-900/60">
+<!-- Active Line Slider / Interactive Indicators with Smooth Progress Fill -->
+<div aria-label="Project carousel indicators" class="flex items-center gap-3 w-auto" id="project-indicators" role="tablist">
+<button aria-label="Slide 1" class="h-[3px] w-20 bg-neutral-800 overflow-hidden transition-all duration-300 focus:outline-none rounded-full project-indicator is-active" data-index="0" role="tab"><span class="indicator-fill block"></span></button>
+<button aria-label="Slide 2" class="h-[3px] w-10 bg-neutral-800 hover:bg-neutral-600 overflow-hidden transition-all duration-300 focus:outline-none rounded-full project-indicator" data-index="1" role="tab"><span class="indicator-fill block"></span></button>
+<button aria-label="Slide 3" class="h-[3px] w-10 bg-neutral-800 hover:bg-neutral-600 overflow-hidden transition-all duration-300 focus:outline-none rounded-full project-indicator" data-index="2" role="tab"><span class="indicator-fill block"></span></button>
+<button aria-label="Slide 4" class="h-[3px] w-10 bg-neutral-800 hover:bg-neutral-600 overflow-hidden transition-all duration-300 focus:outline-none rounded-full project-indicator" data-index="3" role="tab"><span class="indicator-fill block"></span></button>
+</div>
+<!-- Carousel Controls & View All Projects Link -->
+<div class="flex items-center gap-6 sm:gap-8 self-end sm:self-auto">
+<!-- Prev / Next Navigation Arrows -->
+<div class="flex items-center gap-2">
+<button aria-label="Previous project" class="w-10 h-10 flex items-center justify-center border border-neutral-800 hover:border-neutral-500 hover:bg-neutral-900 text-neutral-300 hover:text-white transition-all rounded-full group focus:outline-none" id="project-prev-btn" type="button">
+<span class="transform transition-transform group-hover:-translate-x-0.5 text-base">←</span>
+</button>
+<button aria-label="Next project" class="w-10 h-10 flex items-center justify-center border border-neutral-800 hover:border-neutral-500 hover:bg-neutral-900 text-neutral-300 hover:text-white transition-all rounded-full group focus:outline-none" id="project-next-btn" type="button">
+<span class="transform transition-transform group-hover:translate-x-0.5 text-base">→</span>
+</button>
+</div>
+<!-- All Projects Link -->
+<a class="inline-flex items-center gap-3 text-sm text-neutral-300 hover:text-white transition-colors duration-200 group" href="#">
+<span>View all projects</span>
+<span class="text-base font-light transform transition-transform group-hover:translate-x-1">→</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Selected Projects Section -->
+<!-- BEGIN: Story From Our Clients (Testimonial Section) -->
+<section class="py-24 sm:py-36 px-6 sm:px-12 md:px-16 bg-[#F8F8F8]" data-purpose="testimonials-section">
+<div class="max-w-7xl mx-auto">
+<!-- Eyebrow Tag -->
+<div class="flex justify-end items-center gap-4 mb-8">
+<span class="eyebrow-text text-black font-mono">04  TESTIMONIAL</span>
+<span class="h-[1px] w-24 bg-neutral-300"></span>
+</div>
+<!-- Section Title (Scroll Animated) -->
+<h2 class="text-4xl sm:text-6xl md:text-7xl font-bold tracking-architectural mb-16 text-[#141414] reveal-on-scroll">
+        Story From<br/>Our Clients
+      </h2>
+<!-- Split Layout: Project Imagery & Testimonial Quote -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+<!-- Visual Column (Scroll Animated) -->
+<div class="lg:col-span-5 aspect-[4/3] bg-neutral-200 overflow-hidden rounded-sm reveal-on-scroll">
+<img alt="Warm architectural exterior terrace staircase in concrete and timber" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjwzbM3S_n7Fel7OeNiNDi6XjvOCacLESI8eESp8ZxPVbNHYcun1rvOO8-zkrKvXfsx6xgi7jxhko9CODValnQv1OzqZRou01ocPOA9nP-4cRuK5heauZrdmtEnzEpPyh1Gqx--vVIks-JEc_-PB48DybbKrqGMd_fXHHhVfTCiw2hjpc9hwGDhAAOil2COJUFWPgaP7scaF78-x-PAXftp_WSdFokFzEPXc92RUYYPw-uKbEGICHDpw"/>
+</div>
+<!-- Quote Column (Scroll Animated with delay) -->
+<div class="lg:col-span-7 flex flex-col justify-between reveal-on-scroll delay-200">
+<blockquote class="text-2xl sm:text-3xl md:text-4xl font-normal leading-snug tracking-tight text-[#161616] mb-8">
+            “The studio knew we weren't just building a café — we were creating a warm, distinctive space people would return to.”
+          </blockquote>
+<div class="mb-10">
+<p class="text-sm font-semibold text-black">
+              Andres Eka Prasetya <span class="text-neutral-400 font-normal">• Head of Tjikopi</span>
+</p>
+</div>
+<!-- Slider Controls -->
+<div class="flex items-center gap-4">
+<button aria-label="Previous Testimonial" class="w-10 h-10 flex items-center justify-center border border-neutral-300 text-neutral-800 hover:border-black hover:text-black transition-colors rounded-full">
+              ←
+            </button>
+<button aria-label="Next Testimonial" class="w-10 h-10 flex items-center justify-center border border-neutral-300 text-neutral-800 hover:border-black hover:text-black transition-colors rounded-full">
+              →
+            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Story From Our Clients -->
+<!-- BEGIN: Call To Action Horizon Banner -->
+<section class="relative min-h-[70vh] sm:min-h-[85vh] w-full flex items-center justify-center text-center px-6 overflow-hidden" data-purpose="cta-section">
+<!-- Curved Sculptural Architectural Background (Scroll Animated subtle zoom / reveal) -->
+<div class="absolute inset-0 z-0 reveal-on-scroll">
+<img alt="Dramatic sweeping parametric ceiling architecture in soft daylight" class="w-full h-full object-cover object-center filter brightness-[0.78]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkm0B2f0eOoob78_QeVSoeFtjJGPJB7xOD3goO8OL2Zi_chSsoSZcZAu1dtvmsWr0G0fVN1GW7xj9bVyxlRGBpGVR5fPha974lJWOe2VETr70qwH5MRuNxL70WZyPfYeXeRYtgd0mqh3q4EDzWvHGP6-7eI7vkdZkr_d0-KZTPz3mWfA-FHb7qdYQ1v1e_Bcp8BTC1ZQSL5sU_OJcES0ITB6lvIC4qHwATN8W4y9d0a1Li2fM-uJLrwQ"/>
+<div class="absolute inset-0 bg-black/25"></div>
+</div>
+<!-- Centered Callout (Scroll Animated) -->
+<div class="relative z-10 max-w-4xl mx-auto space-y-8 reveal-on-scroll delay-100">
+<h2 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-architectural text-white leading-[1.05]">
+        Let's Create<br/>Something That<br/>Belongs.
+      </h2>
+<div>
+<a class="inline-flex items-center gap-2 px-7 py-3 rounded-full text-xs font-mono uppercase tracking-wider bg-white/20 hover:bg-white text-white hover:text-black backdrop-blur-md border border-white/40 transition duration-300 font-medium" href="#contact">
+<span class="">Get in Touch</span>
+<span class="">→</span>
+</a>
+</div>
+</div>
+</section>
+<!-- END: Call To Action Horizon Banner -->
+<!-- BEGIN: Editorial Footer -->
+<footer class="bg-[#050505] text-white pt-24 sm:pt-32 pb-12 px-6 sm:px-12 md:px-16" data-purpose="footer" id="contact">
+<div class="max-w-7xl mx-auto">
+<!-- Studio Eyebrow Tag -->
+<div class="flex items-center gap-4 mb-12">
+<span class="eyebrow-text text-neutral-400 font-mono">STUDIO</span>
+<span class="h-[1px] w-20 bg-neutral-800"></span>
+</div>
+<!-- Main Inquiries & Studio Address Row -->
+<div class="flex flex-col lg:flex-row justify-between items-start lg:items-center pb-20 border-b border-neutral-900 gap-8">
+<div>
+<a class="text-3xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-white hover:text-neutral-300 transition-colors inline-flex items-center gap-3" href="mailto:hello@tera.studio">
+<span class="">hello@ngastadalam.studio</span>
+<span class="text-2xl sm:text-4xl font-light">→</span>
+</a>
+</div>
+<div class="text-right sm:text-right lg:text-right">
+<address class="not-italic text-sm text-neutral-400 leading-relaxed font-sans">
+            Jl. Cikini Raya 42<br/>
+            Jakarta Pusat 10330<br/>
+            Indonesia
+          </address>
+</div>
+</div>
+<!-- Sub-Navigation 3 Column Grid -->
+<div class="grid grid-cols-2 md:grid-cols-3 gap-12 py-16 text-xs font-mono">
+<!-- Navigation Menu -->
+<div class="space-y-4">
+<h4 class="text-neutral-500 uppercase tracking-widest font-semibold">MENU</h4>
+<ul class="space-y-2.5 text-neutral-300">
+<li class=""><a class="hover:text-white transition-colors" href="#about">Who we are</a></li>
+<li class=""><a class="hover:text-white transition-colors" href="#">Our Service</a></li>
+<li class=""><a class="hover:text-white transition-colors" href="#selected-projects">Selected Project</a></li>
+<li class=""><a class="hover:text-white transition-colors" href="#contact">Contact Us</a></li>
+</ul>
+</div>
+<!-- Direct Contact -->
+<div class="space-y-4">
+<h4 class="text-neutral-500 uppercase tracking-widest font-semibold">CONTACT</h4>
+<ul class="space-y-2.5 text-neutral-300">
+<li class=""><a class="hover:text-white transition-colors" href="tel:+622150001300">+62 21 5000 1300</a></li>
+<li class="text-neutral-500">Mon–Fri, 09:00–18:00</li>
+</ul>
+</div>
+<!-- Social Media -->
+<div class="space-y-4 col-span-2 md:col-span-1">
+<h4 class="text-neutral-500 uppercase tracking-widest font-semibold">SOCIAL</h4>
+<ul class="space-y-2.5 text-neutral-300">
+<li class=""><a class="hover:text-white transition-colors" href="#">Instagram</a></li>
+<li class=""><a class="hover:text-white transition-colors" href="#">Behance</a></li>
+<li class=""><a class="hover:text-white transition-colors" href="#">LinkedIn</a></li>
+</ul>
+</div>
+</div>
+<!-- Copyright and Back to Top -->
+<div class="pt-8 border-t border-neutral-900 flex flex-col sm:flex-row justify-between items-center text-[11px] font-mono text-neutral-600 gap-4">
+<p class="">© 2026 Tera Architecture Studio</p>
+<a class="hover:text-neutral-300 transition-colors flex items-center gap-1" href="#">
+          Back to top ↑
+        </a>
+</div>
+</div>
+</footer>
+<!-- END: Editorial Footer -->
+<!-- Interactive script for scroll reveals, active service switching, projects carousel, smooth scrolling, and metric counter animation -->
+<script data-purpose="site-interactions">
+    document.addEventListener('DOMContentLoaded', () => {
+      // IntersectionObserver for scroll-triggered fade-in & slide-up animations
+      const reveals = document.querySelectorAll('.reveal-on-scroll');
+      if (reveals.length > 0) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.15,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        reveals.forEach(el => revealObserver.observe(el));
+      }
+
+      // Smooth scroll back to top handler
+      const backToTop = document.querySelector('a[href="#"]');
+      if (backToTop) {
+        backToTop.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      // Scroll-triggered counter animation for metrics
+      const counters = document.querySelectorAll('.metric-counter');
+      const metricsContainer = document.getElementById('metrics-container');
+
+      if (counters.length > 0 && metricsContainer) {
+        // Initialize display to zero with suffix
+        counters.forEach(counter => {
+          const suffix = counter.getAttribute('data-suffix') || '';
+          counter.textContent = `0${suffix}`;
+        });
+
+        const animateCounter = (element) => {
+          const target = parseInt(element.getAttribute('data-target'), 10);
+          const suffix = element.getAttribute('data-suffix') || '';
+          const duration = 1800; // 1.8s duration
+          let startTimestamp = null;
+
+          // Ease-out cubic function: 1 - pow(1 - t, 3)
+          const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+
+          const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            const easedProgress = easeOut(progress);
+            const currentVal = Math.floor(easedProgress * target);
+            element.textContent = `${currentVal}${suffix}`;
+
+            if (progress < 1) {
+              window.requestAnimationFrame(step);
+            } else {
+              element.textContent = `${target}${suffix}`;
+            }
+          };
+
+          window.requestAnimationFrame(step);
+        };
+
+        let animated = false;
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && !animated) {
+              animated = true;
+              counters.forEach(counter => animateCounter(counter));
+              obs.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.25
+        });
+
+        observer.observe(metricsContainer);
+      }
+
+      // Services interactive hover & click behavior
+      const servicesData = {
+        residential: {
+          image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC9Bcx84KWr3lXKgkdh6AzcUOPPMv-czJUTKsSHDpGkoFwDamsZKJMJsUMb83ZZMqShcQYxRX0ztvZAuz2cKRga7ioKkEZTu1WiqR0ENrT-hKp1AO8QRdf2iuAxy5X-yK0LkCR_uDXEOFecfWJ58-rvieLJOy1j5Si3uByhTqMYof6jWuxkUayrltHrRw4LP_nGIyXKFN_IhjO41Gs0f_uk3hf2iAuS6x57ig132vwxq7ZzyN858aWgmA",
+          alt: "Contemporary monolithic residential concrete home in natural greenery",
+          description: "We create residential spaces that balance character, comfort, and context — from intimate retreats to considered family homes."
+        },
+        commercial: {
+          image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAkm0B2f0eOoob78_QeVSoeFtjJGPJB7xOD3goO8OL2Zi_chSsoSZcZAu1dtvmsWr0G0fVN1GW7xj9bVyxlRGBpGVR5fPha974lJWOe2VETr70qwH5MRuNxL70WZyPfYeXeRYtgd0mqh3q4EDzWvHGP6-7eI7vkdZkr_d0-KZTPz3mWfA-FHb7qdYQ1v1e_Bcp8BTC1ZQSL5sU_OJcES0ITB6lvIC4qHwATN8W4y9d0a1Li2fM-uJLrwQ",
+          alt: "Commercial and cultural architectural pavilion with structural ceiling",
+          description: "Thoughtful commercial and cultural hubs engineered to foster connection, brand identity, and enduring urban presence."
+        },
+        planning: {
+          image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBfLFTJqQtxBPMIfnfTJeLdfLbMARh9gcXjrV6TZQq8DjkfwclAwy9AQOJ0RRkYDEoJqTmRGrfub_XYmzuRFMSA7IgXRTq9jKbQLuOrb9vpcWGQ2XtY1ROLHroWWfxC8IZwyUWLnWLADcbnqZC18dyn6RIUa7AuNR_fXnB1gdqub4BHpEaMap-GwIopq2txTnTPHyTsVhGjHZAh4y8lM7591TsKim-AhBDOp-hpcDE0MuRgIgtNVfC1dw",
+          alt: "Site planning and architectural landscape context",
+          description: "Navigating complex municipal frameworks, zoning bylaws, and heritage preservation with strategic clarity."
+        },
+        design: {
+          image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBfFv5iYug8Mm33y9oVTT8WFEtgdwr_WM_cswW7NN_-3TdFR7cdkVwTm4yGHToQsa-9GqvBSUzo21lvTQ4UPLIZi_aGluMiopMLI3zQ4y-Agga-3pmdixYFmJVFOHTjO66vaDTg9M0M3W6QlKhMPGTI-g_RzRsTc8jGigRaifsSYWv29MlG_QFc8vzFqD0weAJkQyd_efcdfM4l4-xfCQ7AmhMEebjYjaamJfymlqcRWTJwDI-xKI-QTQ",
+          alt: "Architectural tactile material details and fluted concrete texture",
+          description: "Translating conceptual vision into precise tectonic drawings, tactile material palettes, and bespoke spatial details."
+        },
+        construction: {
+          image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCgryOHwop2Vk9rG1rhdpMBt5ecdpaXP3RBdXn3SFJ4JHOgKRk8x25CH6SDr4Fx9V1Wm5BD6PTx_4FGlRJoS8BXmZFN2BBOAc9HySIjgXsZkfC2QBoT_pR_0EPyimQq0QnxBa7N9NLf0hXr7Y6LOKb3S8lZANJX-yasojuF883-Ectj7CDV5tFZr_Z-iPzW_ntU7JqRLq9x6YyU7CoNEJwU-FLNrza2ANHuvuEjUDyQJNVA2sprt_iCg",
+          alt: "High-precision architectural construction detailing and timber craftsmanship",
+          description: "Comprehensive architectural sets and structural specifications that ensure absolute fidelity on site."
+        },
+        admin: {
+          image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDjwzbM3S_n7Fel7OeNiNDi6XjvOCacLESI8eESp8ZxPVbNHYcun1rvOO8-zkrKvXfsx6xgi7jxhko9CODValnQv1OzqZRou01ocPOA9nP-4cRuK5heauZrdmtEnzEpPyh1Gqx--vVIks-JEc_-PB48DybbKrqGMd_fXHHhVfTCiw2hjpc9hwGDhAAOil2COJUFWPgaP7scaF78-x-PAXftp_WSdFokFzEPXc92RUYYPw-uKbEGICHDpw",
+          alt: "Finished site coordination architectural project exterior",
+          description: "Rigorous quality control, contractor alignment, and project governance from foundation through handover."
+        }
+      };
+
+      const serviceItems = document.querySelectorAll('.service-item');
+      const previewImg = document.getElementById('service-preview-image');
+      const previewDesc = document.getElementById('service-preview-desc');
+      let currentActiveKey = 'residential';
+      let switchTimeout = null;
+
+      function updateActiveService(key) {
+        if (!servicesData[key]) return;
+        currentActiveKey = key;
+
+        // Update list styling
+        serviceItems.forEach((item) => {
+          const label = item.querySelector('.service-label');
+          const itemKey = item.getAttribute('data-service');
+          if (itemKey === key) {
+            label.className = 'service-label text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#111111] inline-block border-b-2 border-black pb-1 transition-all duration-200';
+          } else {
+            label.className = 'service-label text-3xl sm:text-5xl md:text-6xl font-normal tracking-tight text-neutral-400 group-hover:text-black border-b-2 border-transparent pb-1 transition-all duration-200';
+          }
+        });
+
+        // Crossfade preview with gentle translateY
+        if (previewImg && previewDesc) {
+          previewImg.style.opacity = '0.25';
+          previewImg.style.transform = 'scale(0.98)';
+          previewDesc.style.opacity = '0.25';
+          previewDesc.style.transform = 'translateY(4px)';
+
+          clearTimeout(switchTimeout);
+          switchTimeout = setTimeout(() => {
+            const data = servicesData[key];
+            previewImg.src = data.image;
+            previewImg.alt = data.alt;
+            previewDesc.textContent = data.description;
+
+            previewImg.style.opacity = '1';
+            previewImg.style.transform = 'scale(1)';
+            previewDesc.style.opacity = '1';
+            previewDesc.style.transform = 'translateY(0)';
+          }, 140);
+        }
+      }
+
+      serviceItems.forEach((item) => {
+        const key = item.getAttribute('data-service');
+        item.addEventListener('mouseenter', () => updateActiveService(key));
+        item.addEventListener('click', () => updateActiveService(key));
+      });
+
+      // ==========================================
+      // SECTION 03: SELECTED PROJECTS CAROUSEL LOGIC
+      // ==========================================
+      const projectsList = [
+        {
+          name: "Larkspur Private House",
+          area: "4223 m²",
+          category: "RESIDENTIAL",
+          year: "2026",
+          image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDtpa7cnLZd3Dphtsg6ExVgX8ZcVj7SSRi8mllHJZEAdwIl1EeTWGI13VG4MWIKkPoBGd5ymGhbbkAKrmy8KLIFSo3qkSJHI_eR6Dw1zsyl2UKf8YvJEei40AtRhYYyOB4Xkotq8rBzBdCKHlY3-nla4DqabIBcwxXMXJ2c02u7kSdc2wW7fUWfo2cLPe0_5ogrC8ffpC-96apj7dl2xdTkvYY-cjYiLLDKx6OSp5GCblToagJ9ldAUfA",
+          alt: "Larkspur Private House - Warm timber slatted screens and clean concrete facade"
+        },
+        {
+          name: "Villa Paras Seminyak",
+          area: "2850 m²",
+          category: "HOSPITALITY",
+          year: "2025",
+          image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCgryOHwop2Vk9rG1rhdpMBt5ecdpaXP3RBdXn3SFJ4JHOgKRk8x25CH6SDr4Fx9V1Wm5BD6PTx_4FGlRJoS8BXmZFN2BBOAc9HySIjgXsZkfC2QBoT_pR_0EPyimQq0QnxBa7N9NLf0hXr7Y6LOKb3S8lZANJX-yasojuF883-Ectj7CDV5tFZr_Z-iPzW_ntU7JqRLq9x6YyU7CoNEJwU-FLNrza2ANHuvuEjUDyQJNVA2sprt_iCg",
+          alt: "Villa Paras Seminyak - Tropical open pavilion with natural sandstone and timber louvers"
+        },
+        {
+          name: "Rumah Tectona",
+          area: "3100 m²",
+          category: "RESIDENTIAL",
+          year: "2024",
+          image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBfLFTJqQtxBPMIfnfTJeLdfLbMARh9gcXjrV6TZQq8DjkfwclAwy9AQOJ0RRkYDEoJqTmRGrfub_XYmzuRFMSA7IgXRTq9jKbQLuOrb9vpcWGQ2XtY1ROLHroWWfxC8IZwyUWLnWLADcbnqZC18dyn6RIUa7AuNR_fXnB1gdqub4BHpEaMap-GwIopq2txTnTPHyTsVhGjHZAh4y8lM7591TsKim-AhBDOp-hpcDE0MuRgIgtNVfC1dw",
+          alt: "Rumah Tectona - Contemporary ironwood and basalt residence nestled into hillside"
+        },
+        {
+          name: "Pavilion Ulin Cultural Hall",
+          area: "1750 m²",
+          category: "CULTURAL",
+          year: "2024",
+          image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAkm0B2f0eOoob78_QeVSoeFtjJGPJB7xOD3goO8OL2Zi_chSsoSZcZAu1dtvmsWr0G0fVN1GW7xj9bVyxlRGBpGVR5fPha974lJWOe2VETr70qwH5MRuNxL70WZyPfYeXeRYtgd0mqh3q4EDzWvHGP6-7eI7vkdZkr_d0-KZTPz3mWfA-FHb7qdYQ1v1e_Bcp8BTC1ZQSL5sU_OJcES0ITB6lvIC4qHwATN8W4y9d0a1Li2fM-uJLrwQ",
+          alt: "Pavilion Ulin Cultural Hall - Expansive timber canopy structure with modular pillars"
+        }
+      ];
+
+      let currentProjectIndex = 0;
+      let projectSwitching = false;
+      const totalProjects = projectsList.length;
+
+      const projectImgEl = document.getElementById('project-img');
+      const projectTitleEl = document.getElementById('project-title');
+      const projectCategoryEl = document.getElementById('project-category');
+      const projectYearEl = document.getElementById('project-year');
+      const currentIdxEl = document.getElementById('slide-current-idx');
+      const totalCountEl = document.getElementById('slide-total-count');
+      const indicators = document.querySelectorAll('.project-indicator');
+      const prevBtn = document.getElementById('project-prev-btn');
+      const nextBtn = document.getElementById('project-next-btn');
+      const slideView = document.getElementById('project-slide-view');
+      const carouselContainer = document.getElementById('projects-carousel');
+      const selectedProjectsSection = document.getElementById('selected-projects');
+
+      if (totalCountEl) {
+        totalCountEl.textContent = String(totalProjects).padStart(2, '0');
+      }
+
+      // Check prefers-reduced-motion
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Autoplay configuration (5000ms)
+      const AUTOPLAY_INTERVAL = 5000;
+      let autoplayTimer = null;
+      let isCarouselHovered = false;
+
+      function startAutoplay() {
+        if (prefersReducedMotion) return;
+        stopAutoplay();
+        autoplayTimer = setInterval(() => {
+          if (!isCarouselHovered) {
+            renderProjectSlide(currentProjectIndex + 1, 'next');
+          }
+        }, AUTOPLAY_INTERVAL);
+      }
+
+      function stopAutoplay() {
+        if (autoplayTimer) {
+          clearInterval(autoplayTimer);
+          autoplayTimer = null;
+        }
+      }
+
+      function resetAutoplay() {
+        stopAutoplay();
+        startAutoplay();
+      }
+
+      function renderProjectSlide(targetIndex, direction = 'next') {
+        if (projectSwitching) return;
+        projectSwitching = true;
+        currentProjectIndex = (targetIndex + totalProjects) % totalProjects;
+        const project = projectsList[currentProjectIndex];
+
+        // 1. Update line indicators and reset active progress fill animation
+        indicators.forEach((indicator, idx) => {
+          const fill = indicator.querySelector('.indicator-fill');
+          if (idx === currentProjectIndex) {
+            indicator.className = 'h-[3px] w-20 bg-neutral-800 overflow-hidden transition-all duration-300 focus:outline-none rounded-full project-indicator is-active';
+            indicator.setAttribute('aria-selected', 'true');
+            if (fill) {
+              // Trigger CSS reflow to cleanly restart the 5-second progress bar animation
+              fill.style.animation = 'none';
+              void fill.offsetHeight; // Reflow
+              fill.style.animation = '';
+            }
+          } else {
+            indicator.className = 'h-[3px] w-10 bg-neutral-800 hover:bg-neutral-600 overflow-hidden transition-all duration-300 focus:outline-none rounded-full project-indicator';
+            indicator.setAttribute('aria-selected', 'false');
+            if (fill) {
+              fill.style.animation = 'none';
+            }
+          }
+        });
+
+        // 2. Animate out image & meta
+        if (projectImgEl) {
+          projectImgEl.style.transition = 'opacity 300ms ease, transform 450ms ease';
+          projectImgEl.style.opacity = '0.2';
+          projectImgEl.style.transform = direction === 'next' ? 'scale(0.985) translateX(8px)' : 'scale(0.985) translateX(-8px)';
+        }
+
+        if (projectTitleEl) projectTitleEl.style.opacity = '0.3';
+        if (projectCategoryEl) projectCategoryEl.style.opacity = '0.3';
+        if (projectYearEl) projectYearEl.style.opacity = '0.3';
+
+        setTimeout(() => {
+          // Preload and apply new content
+          if (projectImgEl) {
+            projectImgEl.src = project.image;
+            projectImgEl.alt = project.alt;
+          }
+
+          if (projectTitleEl) {
+            projectTitleEl.innerHTML = `${project.name} <span class="text-neutral-500 font-light mx-2">•</span> ${project.area}`;
+          }
+
+          if (projectCategoryEl) {
+            projectCategoryEl.textContent = project.category;
+          }
+
+          if (projectYearEl) {
+            projectYearEl.textContent = project.year;
+          }
+
+          if (currentIdxEl) {
+            currentIdxEl.textContent = String(currentProjectIndex + 1).padStart(2, '0');
+          }
+
+          // Animate in image & meta
+          if (projectImgEl) {
+            projectImgEl.style.opacity = '1';
+            projectImgEl.style.transform = 'scale(1) translateX(0)';
+          }
+
+          if (projectTitleEl) projectTitleEl.style.opacity = '1';
+          if (projectCategoryEl) projectCategoryEl.style.opacity = '1';
+          if (projectYearEl) projectYearEl.style.opacity = '1';
+
+          setTimeout(() => {
+            projectSwitching = false;
+          }, 320);
+        }, 180);
+      }
+
+      // Event listeners for prev/next with timer restart
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          renderProjectSlide(currentProjectIndex - 1, 'prev');
+          resetAutoplay();
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          renderProjectSlide(currentProjectIndex + 1, 'next');
+          resetAutoplay();
+        });
+      }
+
+      // Direct indicator click with timer restart
+      indicators.forEach(indicator => {
+        indicator.addEventListener('click', () => {
+          const targetIdx = parseInt(indicator.getAttribute('data-index'), 10);
+          if (targetIdx !== currentProjectIndex) {
+            renderProjectSlide(targetIdx, targetIdx > currentProjectIndex ? 'next' : 'prev');
+            resetAutoplay();
+          }
+        });
+      });
+
+      // Click on main image advances to next slide and restarts timer
+      if (slideView) {
+        slideView.addEventListener('click', () => {
+          renderProjectSlide(currentProjectIndex + 1, 'next');
+          resetAutoplay();
+        });
+      }
+
+      // Interactive Pause on Hover for Carousel Container
+      if (carouselContainer) {
+        carouselContainer.addEventListener('mouseenter', () => {
+          isCarouselHovered = true;
+          carouselContainer.classList.add('carousel-is-paused');
+          stopAutoplay();
+        });
+
+        carouselContainer.addEventListener('mouseleave', () => {
+          isCarouselHovered = false;
+          carouselContainer.classList.remove('carousel-is-paused');
+          startAutoplay();
+        });
+      }
+
+      // Keyboard navigation when section or carousel is focused
+      if (selectedProjectsSection) {
+        selectedProjectsSection.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowRight') {
+            renderProjectSlide(currentProjectIndex + 1, 'next');
+            resetAutoplay();
+          } else if (e.key === 'ArrowLeft') {
+            renderProjectSlide(currentProjectIndex - 1, 'prev');
+            resetAutoplay();
+          }
+        });
+      }
+
+      // Start initial autoplay loop if allowed
+      startAutoplay();
+    });
+  </script>
+</body></html>
